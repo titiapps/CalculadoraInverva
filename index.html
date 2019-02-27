@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Calculadora Financiera</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/calculadora.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/calculos.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  </head>
+  <body>
+    <header class="encabezado contenedor">
+      <h2>Calculadora Financiera</h2>
+    </header>
+    <main class="contenido-principal contenedor">
+      <div class="captura">
+        <form action="">
+          <div class="elemento">
+            <label for="">Edad Actual</label>
+            <input type="text" name="edad_actual" id="edad_actual" value="30" />
+          </div>
+          <div class="elemento">
+            <label for="">Ingreso Promedio Actual</label>
+            <input
+              type="text"
+              name="ingreso_mensual"
+              id="ingreso_mensual"
+              value="15000"
+            />
+          </div>
+          <div class="elemento">
+            <label for="">Patrimonio a la Fecha</label>
+            <input
+              type="text"
+              name="patrimonio_fecha"
+              id="patrimonio_fecha"
+              value="1000"
+            />
+          </div>
+          <div class="elemento">
+            <label for="">Edad a Proyectar</label>
+            <input
+              type="text"
+              name="edad_proyectar"
+              id="edad_proyectar"
+              value="85"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="resultados">
+        <div class=" resultado_dif resultado1">
+          <p>
+            Creeemos que necesitas aproximadamente
+            <span id="resultado_mensual"></span> pesos mensualmente para el
+            retiro
+          </p>
+        </div>
+        <div class="resultado_dif resultado2">
+          <p>
+            Creeemos que vas a tener aproximadamente
+            <span id="ingreso_mensual_f"></span> pesos al mes
+          </p>
+        </div>
+
+        <div class="resultado resultado4">
+          <div class="tarjeta">
+            <div class="tarjeta-contenido">
+              <h4>TU SCORE InverVÁ ES :</h4>
+              <p id="score_invea"></p>
+            </div>
+          </div>
+        </div>
+        <div class="resultado resultado3">
+          <div class="tarjeta">
+            <div class="tarjeta-contenido">
+              <p id="resultado_texto_invea"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="captura captura2">
+        <form action="">
+          <div class="elemento">
+            <label for="">Edad de Retiro</label>
+            <input type="text" name="edad_retiro" id="edad_retiro" value="65" />
+          </div>
+          <div class="elemento">
+            <label for="">Ahorro Mensual</label>
+            <input
+              type="text"
+              name="ahorro_mensual"
+              id="ahorro_mensual"
+              value="3000"
+            />
+          </div>
+          <div class="elemento">
+            <label for="">Estandar de Vida en el Retiro</label>
+            <select name="estandar_vida" id="estandar_vida">
+              <option value="gastar_igual">Gastar Igual</option>
+              <option value="gastar_menos">Gastar Menos</option>
+              <option value="gastar_mas">Gastar Mas</option>
+            </select>
+          </div>
+          <div class="elemento">
+            <label for="">Perfil de Inversionista</label>
+            <select name="perfil_inversionista" id="perfil_inversionista">
+              <option value="conservador">Conservador</option>
+              <option value="moderado">Moderado</option>
+              <option value="dinamico">Dinamico</option>
+              <option value="agresivo">Agresivo</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="resultados">
+        <div class="resultado resultado2">
+          <button
+            class="generar_pdf"
+            id="generar_pdf"
+            data-target="#exampleModal"
+            data-toggle="modal"
+          >
+            Descargar PDF<i class="fas fa-file-pdf"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+    <!-- AQUI ESTA EL MODAL PARA LA GENERACION DEL PDF -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              Por favor regalanos tus datos 
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label"
+                  >Nombre Completo</label
+                >
+                <input type="text" class="form-control" id="nombre" value="" />
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label"
+                  >Correo Electronico</label
+                >
+                <input type="email" class="form-control" id="correo"  value=""/>
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label"
+                  >Telefono</label
+                >
+                <input type="text" class="form-control" id="telefono"  value=""/>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary" id="enviar_value">
+              Enviar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

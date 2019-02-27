@@ -1,0 +1,231 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    background: #485563;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #29323c, #485563);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #29323c, #485563);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+
+.generar_pdf {
+    cursor: pointer;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.regresar a {
+    text-decoration: none;
+    color: white;
+}
+
+.encabezado .regresar i {
+    font-size: 3rem;
+}
+
+.encabezado .regresar i:hover {
+    color: #999999;
+    transition: 0.5s ease;
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.contenido-principal {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.captura {
+    flex: 0 0 100%;
+}
+
+.captura form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.captura .elemento {
+    text-align: center;
+}
+
+.captura form label {
+    text-align: center;
+    display: block;
+    font-weight: 500;
+    padding-bottom: 0.2rem;
+}
+
+.captura form input[type="text"], .captura form select {
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+}
+
+.captura form select {
+    padding: 0.4rem;
+}
+
+@media(min-width:460px) {
+    .captura form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-right: 1rem;
+    }
+    .captura .elemento {
+        margin-left: 1rem;
+        flex: 1 0 calc(50% - 1rem);
+    }
+}
+
+@media(min-width:750px) {
+    .captura .elemento {
+        margin-left: 1rem;
+        flex: 0 0 calc(33% - 1rem);
+    }
+}
+
+@media(min-width:900px) {
+    .captura form {
+        justify-content: flex-start;
+    }
+    .captura .elemento {
+        margin-left: 1rem;
+        flex: 0 0 calc(25% - 1rem);
+    }
+}
+
+/* RESULTADOS */
+
+.resultados {
+    padding: 1rem 0;
+    margin-top: 0.2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.resultado {
+    flex: 0 0 calc(50.0% - 1rem);
+}
+.resultado_dif {
+    flex: 0 0 calc(70.0% - 1rem);
+    margin-bottom: 1rem;
+    text-decoration: none;
+  
+   font-size: 1.2rem;
+}
+.resultado_dif span{
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: cadetblue;
+}
+
+.resultado1 {
+    text-align: center;
+    line-height: 1.9rem;
+    
+}
+
+.resultado2 {
+    text-align: center;
+    line-height: 1.9rem;
+}
+
+.resultado3 {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.resultado {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.tarjeta {
+    display: inline-block;
+    background-color: red;
+    width: 20rem;
+    height: 8rem;
+    border-radius: 1rem;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 2.0rem;
+}
+
+.tarjeta p {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 1000;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+}
+
+.resultado4 {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.resultado4 .tarjeta {
+    background-color: cadetblue;
+}
+
+.resultado3 .tarjeta {
+    padding-top: 2.4rem;
+}
+
+.generar_pdf {
+    background-color: IndianRed;
+    color: white;
+    padding: 0.5rem 1rem;
+    min-width:19rem;
+    border-radius: 1rem;
+}
+
+@media(min-width:780px){
+    .generar_pdf {
+    
+        padding: 0.5rem 1rem;
+        min-width: 50%;
+        border-radius: 1rem;
+    }
+}
+
+
+.generar_pdf i {
+    padding: 0.2rem;
+}
+
+/* example Modal */
+
+#exampleModal {
+    color: black;
+}
